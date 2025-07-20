@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { ILoginDto } from "../services/auth.service"
 
@@ -12,7 +10,7 @@ export function useLoginForm() {
 
   const updateField = (field: keyof ILoginDto, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
-    // Clear error when user starts typing
+  
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: undefined }))
     }

@@ -68,7 +68,7 @@ export const register = async (data: IRegisterDto) => {
     if (axiosErr.response) {
       const { message } = axiosErr.response.data;
 
-      // Вернём как строку
+    
       if (Array.isArray(message)) {
         throw new Error(message.join('\n'));
       }

@@ -17,9 +17,9 @@ const userStore = {
 
       const data = await res.json();
 
-      // допустим, в data есть поле data.name
+    
       runInAction(() => {
-        this.setName(data.name); // или data[0].name — в зависимости от API
+        this.setName(data.name); 
       });
     } catch (err) {
       console.error("Ошибка при загрузке пользователей:", err);

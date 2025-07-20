@@ -1,5 +1,3 @@
-'use client';
-
 import { FormField } from '../../components/ui/form-field';
 import { FormFieldsGroup } from '../ui/form-fields-group';
 import { IRegisterDto } from '../../services/auth.service';

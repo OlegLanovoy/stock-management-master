@@ -1,5 +1,3 @@
-'use client';
-
 import type React from 'react';
 import { FormContainer } from '../../components/ui/form-container';
 import { SubmitButton } from '../../components/ui/submit-button';

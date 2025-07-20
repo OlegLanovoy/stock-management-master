@@ -1,5 +1,3 @@
-'use client';
-
 import { FormField } from '../../components/ui/form-field';
 import { FormFieldsGroup } from '../../components/ui/form-fields-group';
 import { ILoginDto } from '../../services/auth.service';

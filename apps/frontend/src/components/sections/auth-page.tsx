@@ -68,7 +68,6 @@ export function AuthPage() {
             boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
           }}
         >
-          {/* Header */}
           <div className="px-8 pt-8 pb-6 text-center border-b border-gray-100">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
               {mode === 'login'
@@ -82,7 +81,6 @@ export function AuthPage() {
             </p>
           </div>
 
-          {/* Form */}
           <div className="px-8 py-6">
             {mode === 'login' ? (
               <LoginForm
@@ -99,7 +97,6 @@ export function AuthPage() {
             )}
           </div>
 
-          {/* Footer */}
           <div className="px-8 pb-8 pt-4 border-t border-gray-100">
             <p className="text-xs text-gray-500 text-center">
               By continuing, you agree to our Terms of Service and Privacy
@@ -109,7 +106,6 @@ export function AuthPage() {
         </Paper>
       </Container>
 
-      {/* Snackbar error */}
       <Snackbar
         open={!!errorMessage}
         autoHideDuration={4000}

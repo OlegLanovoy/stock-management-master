@@ -1,4 +1,3 @@
-// services/portfolio.service.ts
 import { axiosInstance } from "./index";
 
 export interface IAddStockDTO {

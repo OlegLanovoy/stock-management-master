@@ -1,5 +1,3 @@
-'use client';
-
 import { Button } from '@mui/material';
 import { Logout } from '@mui/icons-material';
 import { axiosInstance } from '../../services';
@@ -12,7 +10,7 @@ export function Sidebar() {
     try {
       console.log('lalalalala');
       navigate('/auth');
-      await axiosInstance.post('/auth/logout'); // или get, если у тебя так
+      await axiosInstance.post('/auth/logout');
       return true;
     } catch (err) {
       console.error('Logout error:', err);
@@ -29,7 +27,6 @@ export function Sidebar() {
             variant="contained"
             fullWidth
             className="!bg-slate-600 hover:!bg-slate-700 !text-white !normal-case !py-3 !rounded-lg !shadow-sm"
-            // onClick={() => onNavigate("portfolio")
           >
             Your Stocks
           </Button>

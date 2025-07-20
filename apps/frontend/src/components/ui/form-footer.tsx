@@ -1,6 +1,4 @@
-"use client";
-
-import { SwitchFormButton } from "./switch-form-button";
+import { SwitchFormButton } from './switch-form-button';
 
 interface FormFooterProps {
   text: string;
@@ -16,7 +14,7 @@ export function FormFooter({
   return (
     <div className="text-center pt-4">
       <p className="text-sm text-gray-600">
-        {text}{" "}
+        {text}{' '}
         <SwitchFormButton onClick={onSwitchForm}>{buttonText}</SwitchFormButton>
       </p>
     </div>

@@ -1,11 +1,9 @@
-"use client";
-
-import { TextField } from "@mui/material";
-import type { AuthInputProps } from "../../types/auth";
+import { TextField } from '@mui/material';
+import type { AuthInputProps } from '../../types/auth';
 
 export function AuthInput({
   label,
-  type = "text",
+  type = 'text',
   value,
   onChange,
   placeholder,
@@ -24,25 +22,25 @@ export function AuthInput({
         helperText={error}
         variant="outlined"
         sx={{
-          "& .MuiOutlinedInput-root": {
-            backgroundColor: "#f8fafc",
-            borderRadius: "8px",
-            "& fieldset": {
-              borderColor: "#e2e8f0",
+          '& .MuiOutlinedInput-root': {
+            backgroundColor: '#f8fafc',
+            borderRadius: '8px',
+            '& fieldset': {
+              borderColor: '#e2e8f0',
             },
-            "&:hover fieldset": {
-              borderColor: "#cbd5e1",
+            '&:hover fieldset': {
+              borderColor: '#cbd5e1',
             },
-            "&.Mui-focused fieldset": {
-              borderColor: "#64748b",
+            '&.Mui-focused fieldset': {
+              borderColor: '#64748b',
             },
-            "&.Mui-error fieldset": {
-              borderColor: "#ef4444",
+            '&.Mui-error fieldset': {
+              borderColor: '#ef4444',
             },
           },
-          "& .MuiFormHelperText-root": {
+          '& .MuiFormHelperText-root': {
             marginLeft: 0,
-            marginTop: "4px",
+            marginTop: '4px',
           },
         }}
       />

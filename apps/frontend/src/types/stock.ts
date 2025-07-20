@@ -5,14 +5,13 @@ export interface Stock {
   change: string
   changeValue?: string
   isPositive: boolean
-    onAdd?: () => Promise<void>
+  onAdd?: () => Promise<void>
   isInPortfolio?: any
 }
 
 export interface StockCardProps {
   stock: Stock
-  // onAdd: () => Promise<void>
-  // isInPortfolio: any
+  
 }
 
 export interface StatsCardProps {

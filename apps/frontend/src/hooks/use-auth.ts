@@ -1,4 +1,3 @@
-"use client"
 
 import { useState } from "react"
 import type { LoginFormData, RegisterFormData } from "../types/auth"
@@ -15,12 +14,12 @@ export function useAuth() {
   const login = async (data: LoginFormData): Promise<void> => {
     setIsLoading(true)
     try {
-      // Simulate API call
+   
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      // Mock successful login
+   
       setUser({
-        name: data.login, // In real app, this would come from API
+        name: data.login, 
         login: data.login,
       })
     } catch (error) {
@@ -33,10 +32,10 @@ export function useAuth() {
   const register = async (data: RegisterFormData): Promise<void> => {
     setIsLoading(true)
     try {
-      // Simulate API call
+    
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      // Mock successful registration
+    
       setUser({
         name: data.name,
         login: data.login,

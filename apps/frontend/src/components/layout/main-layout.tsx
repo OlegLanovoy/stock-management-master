@@ -12,7 +12,7 @@ export function MainLayout() {
       .catch(() => setIsAuth(false));
   }, []);
 
-  if (isAuth === null) return null; // или лоадер
+  if (isAuth === null) return null;
 
   if (!isAuth) return <Navigate to="/auth" replace />;
 

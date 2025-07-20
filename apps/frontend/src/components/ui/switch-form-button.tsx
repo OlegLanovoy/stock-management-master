@@ -1,8 +1,6 @@
-"use client";
+import type React from 'react';
 
-import type React from "react";
-
-import { Button } from "@mui/material";
+import { Button } from '@mui/material';
 
 interface SwitchFormButtonProps {
   children: React.ReactNode;
@@ -15,15 +13,15 @@ export function SwitchFormButton({ children, onClick }: SwitchFormButtonProps) {
       variant="text"
       onClick={onClick}
       sx={{
-        color: "#475569",
-        textTransform: "none",
+        color: '#475569',
+        textTransform: 'none',
         fontWeight: 500,
         padding: 0,
-        minWidth: "auto",
-        "&:hover": {
-          backgroundColor: "transparent",
-          color: "#334155",
-          textDecoration: "underline",
+        minWidth: 'auto',
+        '&:hover': {
+          backgroundColor: 'transparent',
+          color: '#334155',
+          textDecoration: 'underline',
         },
       }}
     >

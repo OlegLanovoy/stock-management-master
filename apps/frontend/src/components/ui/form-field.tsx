@@ -1,6 +1,4 @@
-"use client";
-
-import { TextField } from "@mui/material";
+import { TextField } from '@mui/material';
 
 interface FormFieldProps {
   label: string;
@@ -14,7 +12,7 @@ interface FormFieldProps {
 
 export function FormField({
   label,
-  type = "text",
+  type = 'text',
   value,
   onChange,
   placeholder,
@@ -22,34 +20,34 @@ export function FormField({
   required = false,
 }: FormFieldProps) {
   const textFieldStyles = {
-    "& .MuiOutlinedInput-root": {
-      backgroundColor: "#f8fafc",
-      borderRadius: "8px",
-      "& fieldset": {
-        borderColor: "#e2e8f0",
+    '& .MuiOutlinedInput-root': {
+      backgroundColor: '#f8fafc',
+      borderRadius: '8px',
+      '& fieldset': {
+        borderColor: '#e2e8f0',
       },
-      "&:hover fieldset": {
-        borderColor: "#cbd5e1",
+      '&:hover fieldset': {
+        borderColor: '#cbd5e1',
       },
-      "&.Mui-focused fieldset": {
-        borderColor: "#64748b",
+      '&.Mui-focused fieldset': {
+        borderColor: '#64748b',
       },
-      "&.Mui-error fieldset": {
-        borderColor: "#ef4444",
-      },
-    },
-    "& .MuiInputLabel-root": {
-      color: "#374151",
-      "&.Mui-focused": {
-        color: "#64748b",
-      },
-      "&.Mui-error": {
-        color: "#ef4444",
+      '&.Mui-error fieldset': {
+        borderColor: '#ef4444',
       },
     },
-    "& .MuiFormHelperText-root": {
+    '& .MuiInputLabel-root': {
+      color: '#374151',
+      '&.Mui-focused': {
+        color: '#64748b',
+      },
+      '&.Mui-error': {
+        color: '#ef4444',
+      },
+    },
+    '& .MuiFormHelperText-root': {
       marginLeft: 0,
-      marginTop: "4px",
+      marginTop: '4px',
     },
   };
 
