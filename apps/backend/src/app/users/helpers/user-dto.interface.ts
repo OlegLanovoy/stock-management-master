@@ -1,5 +1,8 @@
 export interface IUserDto {
   username: string;
   email: string;
-  stocks?: string[];
+  stocks: {
+    symbol: string;
+    name: string
+  }[]
 }

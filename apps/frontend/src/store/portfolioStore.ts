@@ -1,29 +1,43 @@
-// stores/portfolioStore.ts
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
+import { addStockToPortfolio, removeStockFromPortfolio, IAddStockDTO } from "../services/portfolio.service";
 
 class PortfolioStore {
-  stocks: string[] = [];
+  stocks: IAddStockDTO[] = [];
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  setStocks(symbols: string[]) {
-    this.stocks = symbols;
+  setStocks(stocks: IAddStockDTO[]) {
+    this.stocks = stocks;
   }
 
-  addStock(symbol: string) {
-    if (!this.stocks.includes(symbol)) {
-      this.stocks.push(symbol);
+  async addStock(stock: IAddStockDTO) {
+    try {
+      await addStockToPortfolio(stock);
+      runInAction(() => {
+        if (!this.stocks.find((s) => s.symbol === stock.symbol)) {
+          this.stocks.push(stock);
+        }
+      });
+    } catch (err) {
+      console.error("Failed to add stock:", err);
     }
   }
 
-  removeStock(symbol: string) {
-    this.stocks = this.stocks.filter((s) => s !== symbol);
+  async removeStock(symbol: string) {
+    try {
+      await removeStockFromPortfolio(symbol);
+      runInAction(() => {
+        this.stocks = this.stocks.filter((s) => s.symbol !== symbol);
+      });
+    } catch (err) {
+      console.error("Failed to remove stock:", err);
+    }
   }
 
   isInPortfolio(symbol: string) {
-    return this.stocks.includes(symbol);
+    return this.stocks.some((s) => s.symbol === symbol);
   }
 }
 

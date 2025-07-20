@@ -49,7 +49,7 @@ public async logout(
 
   @UseGuards(JwtRefreshAuthGuard)
   @Post('refresh')
-  public async refresh(@CurrentUser() user: UserModel, @Res() res: Response) {
+  public async refresh(@CurrentUser() user: UserModel, @Res({passthrough: true}) res: Response) {
     await this.authService.generateTokens(user.email, res);
     return {
       message: 'Tokens refreshed successfully',

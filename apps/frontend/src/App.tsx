@@ -1,8 +1,9 @@
 import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { MainLayout } from './components/layout/main-layout';
 import { PortfolioOverview } from './components/sections/portfolio-overview';
-import { AuthPage } from './components/modals/auth-modal';
+import { AuthPage } from './components/sections/auth-page';
 import { Route, Routes } from 'react-router-dom';
+import { StockDetails } from './components/sections/stock-details';
 
 const modernTheme = createTheme({
   palette: {
@@ -49,15 +50,11 @@ export default function App() {
     <ThemeProvider theme={modernTheme}>
       <CssBaseline />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <MainLayout>
-              <PortfolioOverview />
-            </MainLayout>
-          }
-        />
         <Route path="auth" element={<AuthPage />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<PortfolioOverview />} />
+          <Route path="stock/:symbol" element={<StockDetails />} />
+        </Route>
       </Routes>
     </ThemeProvider>
   );

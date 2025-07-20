@@ -1,4 +1,6 @@
-import { axiosInstance } from "./index";
+import { AxiosError } from "axios";
+import { authInstance, axiosInstance } from "./index";
+import { IAddStockDTO } from "./portfolio.service";
 
 export interface ILoginDto {
     email: string;
@@ -11,28 +13,33 @@ export interface IRegisterDto {
     password: string;
 }
 
-interface IGetMeResponse {
+export interface IGetMeResponse {
     username: string;
     email: string;
-    stocks: string[];
+    stocks: IAddStockDTO[];
 }
-export const login = async (data : ILoginDto) =>{
-    try {
-        const response = await axiosInstance.post('auth/login', data)
-        if (response.data.message) {
-            return true
-        } else {
-            return false
-        }
-    } catch(err) {
-        if (err instanceof Error) {
-            console.error(err.message)
-            throw err
-        }
-        throw err;
-        
+export const login = async (data: ILoginDto) => {
+  try {
+    const response = await authInstance.post('auth/login', data);
+    if (response.status === 201) {
+        return true;
     }
-}
+  } catch (err) {
+    const axiosErr = err as AxiosError<{ message: string | string[] }>;
+
+    if (axiosErr.response) {
+      const { message } = axiosErr.response.data;
+
+      if (Array.isArray(message)) {
+        throw new Error(message.join('\n'));
+      }
+
+      throw new Error(message);
+    }
+
+    throw new Error('Login failed. Please try again.');
+  }
+};
 
 export const getMe = async () => {
     try {
@@ -50,27 +57,33 @@ export const getMe = async () => {
 }
 
 export const register = async (data: IRegisterDto) => {
-    try {
-        const response = await axiosInstance.post('auth/register', data)
-        if (response.data.message) {
-            return true
-        } else {
-            return false
-        }
-    } catch(err) {
-        if (err instanceof Error) {
-            console.error(err.message)
-            throw err
-        }
-        throw err;
-        
+  try {
+    const response = await authInstance.post('auth/register', data);
+    if (response.status === 201) {
+        return true;
     }
-}
+  } catch (err) {
+    const axiosErr = err as AxiosError<{ message: string | string[] }>;
+
+    if (axiosErr.response) {
+      const { message } = axiosErr.response.data;
+
+      // Вернём как строку
+      if (Array.isArray(message)) {
+        throw new Error(message.join('\n'));
+      }
+
+      throw new Error(message);
+    }
+
+    throw new Error('Registration failed. Please try again.');
+  }
+};
 
 export const logout = async() =>{
     try {
         const response = await axiosInstance.post('auth/logout')
-        if (response.data.message) {
+        if (response.status === 201) {
             return true
         } else {
             return false

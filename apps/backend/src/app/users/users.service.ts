@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  ConflictException,
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
@@ -30,7 +31,7 @@ export class UsersService {
 
     const userInDb = await this.userModel.findOne({ username }).exec();
     if (userInDb) {
-      throw new BadRequestException('User already exists');
+      throw new ConflictException('User already exists');
     }
 
     const salt = await genSalt(10);
